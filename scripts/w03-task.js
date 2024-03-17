@@ -2,117 +2,104 @@
 
 /* FUNCTIONS */
 /* Function Definition - Add Numbers */
-function add(number1, number2) 
-{
-    // Function body
+function add(number1, number2) {
     return number1 + number2;
-}
-
-function addNumbers() 
-{
-    // Get the values of the input fields
-    var number1 = parseFloat(document.getElementById("add1").value);
-    var number2 = parseFloat(document.getElementById("add2").value);
-
-    // Call the add function with the retrieved values
-    var sum = add(number1, number2);
-
-    // Assign the result to the HTML form element with ID 'sum'
-    document.getElementById("sum").value = sum;
-}
-
-document.getElementById("addNumbers").addEventListener("click", addNumbers);
+  }
+  
+  function addNumbers() {
+    let add1Value = Number(document.querySelector('#add1').value);
+    let add2Value = Number(document.querySelector('#add2').value);
+  
+    let sum = add(add1Value, add2Value);
+  
+    document.querySelector('#sum').value = sum;
+  }
+  
+  document.querySelector('#addNumbers').addEventListener('click', addNumbers);
 
 /* Function Expression - Subtract Numbers */
-var subtract = function(number1, number2) 
-{
+const subtract = function(number1, number2) {
     return number1 - number2;
-};
-
-var subtractNumbers = function() 
-{
-    var number1 = parseFloat(document.getElementById("subtract1").value);
-    var number2 = parseFloat(document.getElementById("subtract2").value);
-    var difference = subtract(number1, number2);
-    document.getElementById("difference").value = difference;
-};
-
-document.getElementById("subtractNumbers").addEventListener("click", subtractNumbers);
+  };
+  
+  const subtractNumbers = function() {
+    let subtract1Value = Number(document.querySelector('#subtract1').value);
+    let subtract2Value = Number(document.querySelector('#subtract2').value);
+  
+    let difference = subtract(subtract1Value, subtract2Value);
+  
+    document.querySelector('#difference').value = difference;
+  };
+  document.querySelector('#subtractNumbers').addEventListener('click', subtractNumbers);
 
 /* Arrow Function - Multiply Numbers */
-const multiply = (number1, number2) => 
-{
-    return number1 * number2;
-};
+const multiply = (number1, number2) => number1 * number2;
 
-const multiplyNumbers = () => 
-{
-    const number1 = parseFloat(document.getElementById("factor1").value);
-    const number2 = parseFloat(document.getElementById("factor2").value);
-    const product = multiply(number1, number2);
-    document.getElementById("product").value = product;
-};
+const multiplyNumbers = () => {
+  let factor1Value = Number(document.querySelector('#factor1').value);
+  let factor2Value = Number(document.querySelector('#factor2').value);
 
-document.getElementById("multiplyNumbers").addEventListener("click", multiplyNumbers);
+  let product = multiply(factor1Value, factor2Value);
+
+  document.querySelector('#product').value = product;
+};
+document.querySelector('#multiplyNumbers').addEventListener('click', multiplyNumbers);
 
 /* Open Function Use - Divide Numbers */
-// Function declaration
-function divide(dividend, divisor) {
-    return dividend / divisor;
-}
+function divide(number1, number2) {
+    return number1 / number2;
+  }
 
-// Function expression
-var divideNumbers = function() {
-    var dividend = parseFloat(document.getElementById("dividend").value);
-    var divisor = parseFloat(document.getElementById("divisor").value);
-    var quotient = divide(dividend, divisor);
-    document.getElementById("quotient").value = quotient;
-};
-
-document.getElementById("divideNumbers").addEventListener("click", divideNumbers);
+  function divideNumbers() {
+    const dividendValue = Number(document.querySelector('#dividend').value);
+    const divisorValue = Number(document.querySelector('#divisor').value);
+  
+    const quotient = divide(dividendValue, divisorValue);
+  
+    document.querySelector('#quotient').value = quotient;
+  }
+  
+  document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 
 /* Decision Structure */
-document.getElementById("getTotalDue").addEventListener("click", function() {
-    // Get the subtotal entered by the user
-    var subtotal = parseFloat(document.getElementById("subtotal").value);
-
-    // Check if the membership checkbox is checked
-    var membershipCheckbox = document.getElementById("membership");
-    var isMembershipChecked = membershipCheckbox.checked;
-
-    // Apply discount if membership checkbox is checked
-    var total;
-    if (isMembershipChecked) {
-        total = subtotal * 0.8; // Apply 20% discount
-    } else {
-        total = subtotal;
-    }
-
-    // Output the total to the total span
-    document.getElementById("total").textContent = `Total Due: $${total.toFixed(2)}`;
-});
+document.querySelector('#getTotal').addEventListener('click', function() {
+    const subtotal = Number(document.querySelector('#subtotal').value);
+  
+    const membershipCheckbox = document.querySelector('#member');
+    const isMember = membershipCheckbox.checked;
+  
+    const discount = isMember ? 0.2 * subtotal : 0;
+  
+    const totalDue = subtotal - discount;
+  
+    document.querySelector('#total').textContent = ` $${totalDue.toFixed(2)}`;
+  });
 
 /* ARRAY METHODS - Functional Programming */
 /* Output Source Array */
 let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-document.getElementById("array").textContent = "Array: " + numbers.join(", ");
+let arrayString = numbersArray.join(', ');
+document.querySelector('#array').textContent = arrayString;
 
 /* Output Odds Only Array */
-let odds = numbersArray.filter(number => number % 2 !== 0);
-document.getElementById("odds").textContent = "Odds: " + odds.join(", ");
+let oddNumbers = numbersArray.filter(number => number % 2 !== 0);
+let oddNumbersString = oddNumbers.join(', ');
+document.querySelector('#odds').textContent = oddNumbersString;
 
 /* Output Evens Only Array */
-let evens = numbersArray.filter(number => number % 2 == 0);
-document.getElementById("evens").textContent = "Evens: " + evens.join(", ");
+let evenNumbers = numbersArray.filter(number => number % 2 === 0);
+let evenNumbersString = evenNumbers.join(', ');
+document.querySelector('#evens').textContent = evenNumbersString;
 
 /* Output Sum of Org. Array */
-let sumOfArray = numbersArray.reduce((sum, number) => sum + number);
-document.getElementById("sumOfArray").textContent = "Sum of Array: " + sumOfArray;
+let sumOfArray = numbersArray.reduce((sum, number) => sum + number, 0);
+document.querySelector('#sumOfArray').textContent = sumOfArray;
 
 /* Output Multiplied by 2 Array */
-let multiplied = numbersArray.map(number => number * 2);
-document.getElementById("multiplied").textContent = "Multiplied: " + multipliedBy2.join(", ");
+let multipliedArray = numbersArray.map(number => number * 2);
+let multipliedString = multipliedArray.join(', ');
+document.getElementById("multiplied").textContent = multipliedArray.join(", ");
 
 /* Output Sum of Multiplied by 2 Array */
-let sumOfMultiplied = numbersArray.map(number => number * 2).reduce((sum, number) => sum + number);
-document.getElementById("sumOfMultiplied").textContent = "Sum of Multiplied: " + sumOfMultiplied;
+let sumOfMultiplied = multipliedArray.reduce((sum, number) => sum + number, 0);
+document.getElementById("sumOfMultiplied").textContent = sumOfMultiplied;
