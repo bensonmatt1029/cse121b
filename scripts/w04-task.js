@@ -5,7 +5,7 @@ const myProfile = {
     name: "Matt Benson",
     photo: "images/profile_pic.png",
     favoriteFoods: ["Pizza", "Ice Cream", "Chocolate", "Pasta"],
-    hobbies: ["Video Games", "Hiking", "Weight-Lifting"],
+    hobbies: ["Video Games", "Hiking", "Movies"],
     placesLived: []
 };
 
