@@ -4,7 +4,7 @@ const searchButton = document.getElementById('searchButton');
 
 // Function to fetch recipes
 function fetchRecipes(query) {
-    const apiKey = 'd3b70f149a474d24adbfc5f053dac6bd'; // Replace 'YOUR_API_KEY' with your actual API key
+    const apiKey = 'd3b70f149a474d24adbfc5f053dac6bd';
     const url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${apiKey}`;
 
     fetch(url)
@@ -33,11 +33,7 @@ function displayRecipes(recipes) {
         recipeCard.classList.add('recipe');
         recipeCard.innerHTML = `
             <h2>${recipe.title}</h2>
-            <p>${recipe.summary}</p>
-            <p>Ready in ${recipe.readyInMinutes} minutes</p>
-            <p>Servings: ${recipe.servings}</p>
             <img src="${recipe.image}" alt="${recipe.title}">
-            <!-- Add more HTML elements for other recipe details -->
         `;
         recipeList.appendChild(recipeCard);
     });
